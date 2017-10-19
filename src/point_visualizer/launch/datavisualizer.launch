@@ -1,0 +1,5 @@
+<launch>
+   <node name="pointvisualizer" pkg="point_visualizer" type="pointvisualizer" />
+   <node name="rviz" pkg="rviz" type="rviz" args="-d $(find point_visualizer)/config/sensorconfig.rviz" />
+   <node pkg="tf" type="static_transform_publisher" name="world_transform" args="0 0 0 0 0 0 /world test 100" />
+</launch>
