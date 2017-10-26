@@ -56,7 +56,7 @@ Visualization Manager:
       History Length: 1
       Name: PointStamped
       Radius: 0.2
-      Topic: /mouse_event_rviz
+      Topic: show_visual
       Unreliable: false
       Value: true
   Enabled: true
@@ -83,7 +83,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 78.0983
+      Distance: 26.7199
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.06
         Stereo Focal Distance: 1
@@ -116,5 +116,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1200
-  X: 104
+  X: 124
   Y: 14
