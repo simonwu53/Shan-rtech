@@ -56,7 +56,7 @@ Visualization Manager:
       History Length: 1
       Name: PointStamped
       Radius: 0.2
-      Topic: /mouse_event_rviz
+      Topic: /show_visual
       Unreliable: false
       Value: true
   Enabled: true
@@ -95,10 +95,10 @@ Visualization Manager:
         Z: 0
       Name: Current View
       Near Clip Distance: 0.01
-      Pitch: 0.4048
+      Pitch: 0.7848
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 0.0254012
+      Yaw: 4.67357
     Saved: ~
 Window Geometry:
   Displays:
@@ -116,5 +116,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1200
-  X: 104
+  X: 94
   Y: 14

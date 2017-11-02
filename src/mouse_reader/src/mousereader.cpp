@@ -8,7 +8,7 @@
 #include <fcntl.h>
 //#include <X11/Xlib.h>
 
-#define MOUSEFILE "/dev/input/event16"
+#define MOUSEFILE "/dev/input/event14"
 
 int main(int argc, char **argv)
 {
@@ -27,15 +27,36 @@ int main(int argc, char **argv)
       if (ie.type == 2) {
         if (ie.code == 0) {
             mouse_point.x+=ie.value;
+            ROS_INFO("x value:\tx %d\n", ie.value);
             }
         if (ie.code == 1) {
             mouse_point.y+=ie.value;
+            ROS_INFO("y value:\tx %d\n", ie.value);
             }
         mouse_point.z = 1;
         ROS_INFO("time%ld.%06ld\tx %d\ty %d\tz %d\n",
            ie.time.tv_sec, ie.time.tv_usec, mouse_point.x, mouse_point.y, mouse_point.z);
-        mouse_pub.publish(mouse_point);
+        
       } else {
+        if (ie.code == 272) {
+            if (ie.value == 1){
+                mouse_point.lclick+=ie.value;
+                ROS_INFO("you clicked left button.");
+            }
+            if (ie.value == 0){
+                ROS_INFO("you released left button.");
+            }
+        }
+        if (ie.code == 273) {
+            if (ie.value == 1){
+                mouse_point.rclick+=ie.value;
+                ROS_INFO("you clicked right button.");
+            }
+            if (ie.value == 0){
+                ROS_INFO("you released right button.");
+            }
+        }
+        mouse_pub.publish(mouse_point);
         //printf("time %ld.%06ld\ttype %d\tcode %d\tvalue %d\n",
             //ie.time.tv_sec, ie.time.tv_usec, ie.type, ie.code, ie.value);
       }

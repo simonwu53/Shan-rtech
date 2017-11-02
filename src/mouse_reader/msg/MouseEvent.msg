@@ -1,11 +1,17 @@
 # x
-int8 x
+int32 x
 
 # y
-int8 y
+int32 y
 
 # z
-int8 z
+int32 z
+
+# lclick
+int32 lclick
+
+# rclick
+int32 rclick
 
 # code
 int8 code

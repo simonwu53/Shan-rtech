@@ -29,9 +29,9 @@ int main(int argc, char **argv)
   while(ros::ok()) {
     geometry_msgs::PointStamped pointer;
     pointer.header.frame_id = "test";
-    pointer.point.x = x/1000;
-    pointer.point.y = y/1000;
-    pointer.point.z = z/1000;
+    pointer.point.x = x/100;
+    pointer.point.y = y/100;
+    pointer.point.z = z/100;
     mouse_pub.publish(pointer);
     ROS_INFO("Published msg: Point [%f %f %f]", pointer.point.x, pointer.point.y, pointer.point.z);
     ros::spinOnce();
