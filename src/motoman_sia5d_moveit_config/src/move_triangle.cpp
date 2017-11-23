@@ -50,31 +50,35 @@ int main(int argc, char **argv)
   
   
   // Set original pose
-  //geometry_msgs::Pose start_pose2;
-  //start_pose2.orientation.w = 1.0;
-  //start_pose2.position.x = 0.5;
-  //start_pose2.position.y = 0;
-  //start_pose2.position.z = 0.64;
-  //start_pose2.position.x = 0.28;
-  //start_pose2.position.y = 0.7;
-  //start_pose2.position.z = 0.28;
+  geometry_msgs::Pose start_pose;
+  start_pose.orientation.w = 1.0;
+  start_pose.position.x = 0.5;
+  start_pose.position.y = 0;
+  start_pose.position.z = 0.64;
   
+  group.setPoseTarget(start_pose);
+  
+  moveit::planning_interface::MoveGroup::Plan plan1;
+  bool success = group.plan(plan1);
+  ROS_INFO("Setting start position %s", success?"":"Failed");
+  
+  group.move();
+  sleep(2.5);
   
   // Cartesian Paths
   std::vector<geometry_msgs::Pose> waypoints;
 
-  geometry_msgs::Pose target_pose3;
-  //target_pose3.position.z -= 0.05;
-  target_pose3.position.x -= 0.05;
-  waypoints.push_back(target_pose3);  // up and out
+  geometry_msgs::Pose target_pose = start_pose;
+  target_pose.position.z -= 0.1;
+  target_pose.position.y -= 0.15;
+  waypoints.push_back(target_pose); // turn left
 
-  //target_pose3.position.y -= 0.2;
-  //waypoints.push_back(target_pose3);  // left
+  target_pose.position.y += 0.3;
+  waypoints.push_back(target_pose); // turn right
 
-  //target_pose3.position.z -= 0.2;
-  //.position.y += 0.2;
-  //target_pose3.position.x -= 0.2;
-  //waypoints.push_back(target_pose3);  // down and right (back to start)
+  target_pose.position.y -= 0.15;
+  target_pose.position.z += 0.1;
+  waypoints.push_back(target_pose);  // get back
 
   // We want the cartesian path to be interpolated at a resolution of 1 cm
   // which is why we will specify 0.01 as the max step in cartesian
@@ -89,10 +93,10 @@ int main(int argc, char **argv)
   ROS_INFO("Visualizing plan (cartesian path) (%.2f%% acheived)",
         fraction * 100.0);    
 
-  
-  
-  
-  
+  plan1.trajectory_ = trajectory;
+  group.execute(plan1);
+
+
   // set waiting time
   sleep(5.0);
   
