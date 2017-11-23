@@ -2,3 +2,7 @@
 	path = src/motoman
 	url = https://github.com/ros-industrial/motoman
 	branch = indigo
+[submodule "universal_robot"]
+	path = universal_robot
+	url = https://github.com/ros-industrial/universal_robot
+	branch = indigo
