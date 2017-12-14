@@ -1,0 +1,5 @@
+<launch>
+   <node name="makeethanol" pkg="Ethanol" type="makeethanol" />
+   <node name="rviz" pkg="rviz" type="rviz" args="-d $(find Ethanol)/config/makerconfig.rviz"/>
+   <node pkg="tf" type="static_transform_publisher" name="world_transform" args="0 0 0 0 0 0 /world test 100" />
+</launch>
