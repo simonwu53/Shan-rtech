@@ -1,7 +1,7 @@
 ## Robotics Technology Exam
 
 ### Result
-* [![methanol](/Shan-rtech/src/Ethanol/methanol.png)](/Shan-rtech/src/Ethanol/methanol.png)
+* [![methanol](src/Ethanol/methanol.png)](src/Ethanol/methanol.png)
 * Sorry for the wrong name, the node I created called `makeethanol`, but actually it's a `Methanol` :) This because I create node before doing it..
 
 ###How I solve this probelm
@@ -15,4 +15,4 @@
 * Add marker in Rviz and subscribe on the topic I published in the rosnode.
 * Create a rosnode that publish the markers messages on the specific topic.
 
-[![nodes](/Shan-rtech/src/Ethanol/nodes.png)](/Shan-rtech/src/Ethanol/nodes.png)
+[![nodes](src/Ethanol/nodes.png)](src/Ethanol/nodes.png)
