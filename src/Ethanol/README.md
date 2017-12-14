@@ -15,4 +15,4 @@
 * Add marker in Rviz and subscribe on the topic I published in the rosnode.
 * Create a rosnode that publish the markers messages on the specific topic.
 
-
+[![nodes](/Shan-rtech/src/Ethanol/nodes.png)](/Shan-rtech/src/Ethanol/nodes.png)
